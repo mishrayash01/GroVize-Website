@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Navbar from '@/react-app/components/Navbar';
-import Footer from '@/react-app/components/Footer';
-import ScrollReveal from '@/react-app/components/ScrollReveal';
-import { Mail, MapPin, Send } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import ScrollReveal from '../components/ScrollReveal';
+import { Mail, Send } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -47,6 +47,7 @@ export default function Contact() {
       {/* Contact Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
           {/* Contact Info */}
           <ScrollReveal>
             <div className="space-y-8">
@@ -58,6 +59,7 @@ export default function Contact() {
               </div>
 
               <div className="space-y-6">
+                {/* Email Box */}
                 <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 group">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -71,26 +73,15 @@ export default function Contact() {
                     </div>
                   </div>
                 </div>
-
-                <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 group">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <MapPin className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-white font-semibold mb-1">Location</h3>
-                      <p className="text-gray-400">Lucknow, India</p>
-                    </div>
-                  </div>
+          
+                {/* Business Hours Box */}
+                <div className="bg-gradient-to-r from-green-500/10 to-green-600/10 backdrop-blur-xl rounded-2xl p-8 border border-green-500/20">
+                  <h3 className="text-white font-semibold mb-3">Business Hours</h3>
+                  <p className="text-gray-400">
+                    Monday - Saturday: 9:00 AM - 6:00 PM IST<br />
+                    Sunday: Closed
+                  </p>
                 </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-green-500/10 to-green-600/10 backdrop-blur-xl rounded-2xl p-8 border border-green-500/20">
-                <h3 className="text-white font-semibold mb-3">Business Hours</h3>
-                <p className="text-gray-400">
-                  Monday - Saturday: 9:00 AM - 6:00 PM IST<br />
-                  Sunday: Closed
-                </p>
               </div>
             </div>
           </ScrollReveal>
