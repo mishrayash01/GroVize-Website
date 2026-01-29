@@ -139,22 +139,6 @@ export default function Home() {
                   Note: As this is a Developer Beta, your phone may show a security warning. Please click "Download Anyway" to proceed.
                 </p>
               </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="mt-8 flex items-center space-x-6 text-sm text-gray-400"
-              >
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span>Free Forever</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span>No Credit Card</span>
-                </div>
-              </motion.div>
             </div>
 
             {/* Right Side - App Mockup with Floating Animation */}
