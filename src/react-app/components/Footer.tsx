@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Instagram, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import brandLogo from '../../logo2.png';
 
 export default function Footer() {
