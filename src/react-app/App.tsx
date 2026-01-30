@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import HomePage from "./pages/Home";
 import FeaturesPage from "./pages/Features";
 import AboutPage from "./pages/About";
@@ -16,6 +17,8 @@ export default function App() {
       </Routes>
       {/* This tracks performance for all GroVize pages */}
       <SpeedInsights />
+      {/* This tracks visitors and page views */}
+      <Analytics />
     </Router>
   );
 }
