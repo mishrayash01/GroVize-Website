@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router";
-import HomePage from "@/react-app/pages/Home";
-import FeaturesPage from "@/react-app/pages/Features";
-import AboutPage from "@/react-app/pages/About";
-import ContactPage from "@/react-app/pages/Contact";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import HomePage from "./pages/Home";
+import FeaturesPage from "./pages/Features";
+import AboutPage from "./pages/About";
+import ContactPage from "./pages/Contact";
 
 export default function App() {
   return (
@@ -13,6 +14,8 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      {/* This tracks performance for all GroVize pages */}
+      <SpeedInsights />
     </Router>
   );
 }
