@@ -6,45 +6,31 @@ import { Zap, Package, TrendingUp, Shield, Clock, Bell } from 'lucide-react';
 export default function Features() {
   const features = [
     {
-      title: '3-Click Billing Process',
-      description: 'Generate professional invoices in just three clicks. Our streamlined billing system saves you time and reduces errors, making transaction processing faster than ever.',
+      title: '3-Click Ultra-Fast Billing',
+      description: 'Generate professional invoices instantly. No typing needed—just scan or select. Reduces lines at your counter.',
       icon: Zap,
       color: 'from-green-400 to-green-600',
       direction: 'left',
     },
     {
-      title: 'Low Stock Alerts',
-      description: 'Never run out of essential items. Our intelligent system monitors your inventory levels and sends timely alerts when stock runs low, helping you maintain optimal inventory.',
+      title: 'Smart Low Stock Alerts',
+      description: 'Never say "No" to a customer. GroVize alerts you before your best-selling items go out of stock.',
       icon: Bell,
       color: 'from-blue-400 to-blue-600',
       direction: 'right',
     },
     {
-      title: 'Expiry Date Tracking',
-      description: 'Reduce waste and protect your customers. Automatically track product expiry dates and receive notifications before items expire, ensuring product quality and safety.',
-      icon: Clock,
-      color: 'from-purple-400 to-purple-600',
-      direction: 'left',
-    },
-    {
-      title: 'Sales Analytics',
-      description: 'Make data-driven decisions with comprehensive sales reports. Visualize trends, identify best-sellers, and understand your business performance at a glance.',
-      icon: TrendingUp,
-      color: 'from-orange-400 to-orange-600',
-      direction: 'right',
-    },
-    {
       title: 'AI Inventory Management',
-      description: 'Leverage artificial intelligence to predict demand, optimize stock levels, and automate reordering. Our AI learns your business patterns to help you stay ahead.',
+      description: 'Our AI learns your sales patterns to predict demand. It\'s like having a smart manager in your pocket.',
       icon: Package,
       color: 'from-pink-400 to-pink-600',
       direction: 'left',
     },
     {
-      title: 'Secure Cloud Backup',
-      description: 'Your data is precious. Automatic cloud backups ensure your business information is always safe and accessible from anywhere, on any device.',
-      icon: Shield,
-      color: 'from-cyan-400 to-cyan-600',
+      title: 'Business Sales Analytics',
+      description: 'Visual reports of your daily, weekly, and monthly sales. Know exactly how much profit you made today.',
+      icon: TrendingUp,
+      color: 'from-orange-400 to-orange-600',
       direction: 'right',
     },
   ];
@@ -58,12 +44,12 @@ export default function Features() {
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Powerful <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600">Features</span>
+              Powerful Features for the Modern Retailer
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Everything you need to run your retail business efficiently, all in one place
+              Replace your notebook and calculator with one powerful mobile app.
             </p>
           </ScrollReveal>
         </div>
@@ -88,7 +74,7 @@ export default function Features() {
                 {/* Text Side */}
                 <div className="flex-1">
                   <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20">
-                    <h3 className="text-3xl font-bold text-white mb-4">{feature.title}</h3>
+                    <h2 className="text-3xl font-bold text-white mb-4">{feature.title}</h2>
                     <p className="text-gray-400 leading-relaxed text-lg">
                       {feature.description}
                     </p>

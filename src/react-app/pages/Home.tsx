@@ -3,60 +3,46 @@ import Navbar from '@/react-app/components/Navbar';
 import Footer from '@/react-app/components/Footer';
 import ScrollReveal from '@/react-app/components/ScrollReveal';
 import { motion } from 'framer-motion';
-import { Zap, Package, Database, Shield, Clock, TrendingUp, Download } from 'lucide-react';
+import { Zap, Package, Database, Shield, Clock, Download } from 'lucide-react';
+import { AnalyticsAnimation } from '@/react-app/components/AnalyticsAnimation';
+import { MagneticButton } from '@/react-app/components/MagneticButton';
 
 export default function Home() {
-  const [typedText, setTypedText] = useState('');
-  const fullText = 'Smart Billing for Smart Bharat.';
-
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.substring(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 80);
-
-    return () => clearInterval(timer);
-  }, []);
 
   const features = [
     {
       title: 'Fast Billing',
-      description: 'Generate invoices in 3 clicks',
+      description: 'Generate GST/Non-GST invoices in 3 clicks.',
       icon: Zap,
       color: 'from-green-400 to-green-600',
     },
     {
       title: 'AI Inventory Tracking',
-      description: 'Smart stock management',
+      description: 'Auto-deduct stock on every sale.',
       icon: Package,
       color: 'from-blue-400 to-blue-600',
     },
     {
       title: '500+ Item Database',
-      description: 'Pre-loaded product catalog',
+      description: 'Pre-loaded FMCG & Pharma catalog.',
       icon: Database,
       color: 'from-purple-400 to-purple-600',
     },
     {
       title: 'Secure Cloud Backup',
-      description: 'Never lose your data',
+      description: 'Auto-sync data (Never lose a ledger).',
       icon: Shield,
       color: 'from-orange-400 to-orange-600',
     },
     {
       title: 'Real-time Analytics',
-      description: 'Track sales performance',
-      icon: TrendingUp,
+      description: 'Track daily profit & sales trends.',
+      icon: AnalyticsAnimation,
       color: 'from-pink-400 to-pink-600',
     },
     {
       title: 'Restock Alerts',
-      description: 'Prevent product waste',
+      description: '"Low Stock" notifications before you run out.',
       icon: Clock,
       color: 'from-cyan-400 to-cyan-600',
     },
@@ -64,13 +50,12 @@ export default function Home() {
 
   const shopTypes = [
     'Medical Stores',
-    'Kirana Shops',
-    'Electronics Retailers',
-    'Grocery Stores',
-    'Hardware Shops',
-    'Stationery Stores',
-    'Clothing Boutiques',
+    'Kirana & Grocery',
+    'Electronics',
     'Mobile Shops',
+    'Hardware',
+    'Clothing Boutiques',
+    'Stationery',
   ];
 
   return (
@@ -83,24 +68,19 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Text */}
             <div className="text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <div className="inline-block bg-green-500/10 backdrop-blur-sm border border-green-500/20 rounded-full px-4 py-2 mb-6">
-                  <span className="text-green-400 text-sm font-semibold">AI-Powered Solution</span>
-                </div>
-              </motion.div>
-
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+                className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+                style={{
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  background: 'linear-gradient(to right, #00BFFF, #FFD700)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
               >
-                {typedText}
-                <span className="animate-pulse">|</span>
+                Smart Billing & AI Inventory App for Smart Bharat
               </motion.h1>
 
               <motion.p
@@ -109,7 +89,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl text-gray-400 mb-8 leading-relaxed"
               >
-                Manage Inventory & Billing in seconds. Transform your shop with AI-powered tools designed for Indian retailers.
+                Manage Inventory, Create Invoices & Track Sales in seconds. Transform your Dukaan with AI-powered tools designed specifically for Indian retailers.
               </motion.p>
 
               <motion.div
@@ -118,15 +98,16 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <a
+                <MagneticButton
+                  as="a"
                   href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold text-lg flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
                 >
                   <Download className="w-5 h-5" />
-                  <span>Download for Free</span>
-                </a>
+                  <span>Download App (Free APK)</span>
+                </MagneticButton>
 
               </motion.div>
               <motion.div
@@ -136,7 +117,7 @@ export default function Home() {
                 className="mt-4 text-center"
               >
                 <p className="text-xs text-gray-400 opacity-75">
-                  Note: As this is a Developer Beta, your phone may show a security warning. Please click "Download Anyway" to proceed.
+                  Note: You are downloading the Developer Beta directly. If you see a security warning, click "Download Anyway" – It is 100% Safe & Secure.
                 </p>
               </motion.div>
             </div>
@@ -193,7 +174,7 @@ export default function Home() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                Everything You Need
+                Everything You Need to Run a Digital Dukaan
               </h2>
               <p className="text-xl text-gray-400">
                 Powerful features to run your retail business efficiently
@@ -204,7 +185,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="group bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-500">
+                <div className="group bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 transition-all duration-300 hover:scale-105 hover:border-blue-400 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
                   <div className={`w-14 h-14 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <feature.icon className="w-7 h-7 text-white" />
                   </div>
@@ -223,7 +204,7 @@ export default function Home() {
           <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Made For Retailers
+                Billing App for Every Indian Shop
               </h2>
               <p className="text-xl text-gray-400">
                 Serving businesses across India
