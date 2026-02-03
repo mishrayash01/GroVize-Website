@@ -10,6 +10,7 @@ import { CounterEffect } from '@/react-app/components/CounterEffect';
 import { SyncLockIcon } from '@/react-app/components/SyncLockIcon';
 import { TrendLineChartIcon } from '@/react-app/components/TrendLineChartIcon';
 import { LowStockIcon } from '@/react-app/components/LowStockIcon';
+import { CrossPlatformMockup } from '@/react-app/components/CrossPlatformMockup';
 import { MagneticButton } from '@/react-app/components/MagneticButton';
 
 export default function Home() {
@@ -119,25 +120,9 @@ export default function Home() {
             </div>
 
             {/* Right Side - App Mockup with Floating Animation */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="hidden lg:flex justify-center items-center"
-            >
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="relative bg-soft-off-white rounded-3xl shadow-2xl p-4"
-              >
-                {/* App Mockup Image */}
-                <img 
-                  src="https://019c0931-75c4-76fa-b832-8ca7391e15f9.mochausercontent.com/Untitled_design__1_-removebg-preview_upscaled.png" 
-                  alt="GroVize App" 
-                  className="relative w-full max-w-md h-auto"
-                />
-              </motion.div>
-            </motion.div>
+            <div className="hidden lg:flex justify-center items-center">
+              <CrossPlatformMockup />
+            </div>
           </div>
         </div>
       </div>
