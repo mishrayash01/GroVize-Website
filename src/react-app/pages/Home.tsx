@@ -98,18 +98,16 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <a
+                <MagneticButton
+                  as="a"
                   href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold text-lg flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
                 >
-                  <MagneticButton
-                    className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold text-lg flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
-                  >
-                    <Download className="w-5 h-5" />
-                    <span>Download App (Free APK)</span>
-                  </MagneticButton>
-                </a>
+                  <Download className="w-5 h-5" />
+                  <span>Download App (Free APK)</span>
+                </MagneticButton>
 
               </motion.div>
               <motion.div
