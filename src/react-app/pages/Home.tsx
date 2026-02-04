@@ -7,6 +7,7 @@ import { Download } from 'lucide-react';
 import { MagneticButton } from '@/react-app/components/MagneticButton';
 import TrustBar from '@/react-app/components/TrustBar';
 
+export default function Home() {
   const shopTypes = [
     'Medical Stores',
     'Kirana & Grocery',
