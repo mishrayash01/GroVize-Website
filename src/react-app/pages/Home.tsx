@@ -11,6 +11,7 @@ import { SyncLockIcon } from '@/react-app/components/SyncLockIcon';
 import { TrendLineChartIcon } from '@/react-app/components/TrendLineChartIcon';
 import { LowStockIcon } from '@/react-app/components/LowStockIcon';
 import { MagneticButton } from '@/react-app/components/MagneticButton';
+import TrustBar from '@/react-app/components/TrustBar';
 
 export default function Home() {
 
@@ -59,6 +60,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
+      <TrustBar />
       <Navbar />
       
       {/* Hero Section */}
