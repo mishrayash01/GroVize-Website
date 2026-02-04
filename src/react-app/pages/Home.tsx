@@ -4,49 +4,8 @@ import Footer from '@/react-app/components/Footer';
 import ScrollReveal from '@/react-app/components/ScrollReveal';
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
-import { AnimatedZap } from '@/react-app/components/AnimatedZap';
-import { ScanEffectIcon } from '@/react-app/components/ScanEffectIcon';
-import { CounterEffect } from '@/react-app/components/CounterEffect';
-import { SyncLockIcon } from '@/react-app/components/SyncLockIcon';
-import { TrendLineChartIcon } from '@/react-app/components/TrendLineChartIcon';
-import { LowStockIcon } from '@/react-app/components/LowStockIcon';
 import { MagneticButton } from '@/react-app/components/MagneticButton';
 import TrustBar from '@/react-app/components/TrustBar';
-
-export default function Home() {
-
-  const features = [
-    {
-      title: 'Fast Billing',
-      description: 'Generate GST/Non-GST invoices in 3 clicks.',
-      icon: AnimatedZap,
-    },
-    {
-      title: 'AI Inventory Tracking',
-      description: 'Auto-deduct stock on every sale.',
-      icon: ScanEffectIcon,
-    },
-    {
-      title: '500+ Item Database',
-      description: 'Pre-loaded FMCG & Pharma catalog.',
-      icon: CounterEffect,
-    },
-    {
-      title: 'Secure Cloud Backup',
-      description: 'Auto-sync data (Never lose a ledger).',
-      icon: SyncLockIcon,
-    },
-    {
-      title: 'Real-time Analytics',
-      description: 'Track daily profit & sales trends.',
-      icon: TrendLineChartIcon,
-    },
-    {
-      title: 'Restock Alerts',
-      description: '"Low Stock" notifications before you run out.',
-      icon: LowStockIcon,
-    },
-  ];
 
   const shopTypes = [
     'Medical Stores',
@@ -157,36 +116,6 @@ export default function Home() {
               />
             </div>
           </ScrollReveal>
-        </div>
-      </div>
-
-      {/* Bento Grid Features */}
-      <div className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold text-rich-black mb-4">
-                Everything You Need to Run a Digital Dukaan
-              </h2>
-              <p className="text-xl text-slate-grey">
-                Powerful features to run your retail business efficiently
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="group bg-soft-off-white rounded-2xl p-6 border border-border-light transition-all duration-300 hover:scale-105 hover:border-muted-gold hover:shadow-xl">
-                  <div className={`w-14 h-14 bg-metallic-gold rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <feature.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-rich-black mb-2">{feature.title}</h3>
-                  <p className="text-slate-grey">{feature.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </div>
 
