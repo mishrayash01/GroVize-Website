@@ -2,12 +2,12 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
 import { Mail, MapPin, Clock } from 'lucide-react';
-import TrustBar from '@/react-app/components/TrustBar';
+
 
 export default function Contact() {
   return (
     <div className="min-h-screen">
-      <TrustBar />
+
       <Navbar />
       
       {/* Hero Section */}

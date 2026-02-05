@@ -1,10 +1,15 @@
 import Navbar from '@/react-app/components/Navbar';
 import Footer from '@/react-app/components/Footer';
 import ScrollReveal from '@/react-app/components/ScrollReveal';
-import { Zap, Package, TrendingUp, Shield, Clock, Bell } from 'lucide-react';
+import { Zap, Package, TrendingUp, Bell } from 'lucide-react';
+import mockup1 from '@/grovize-mockup-1.png';
+import mockup2 from '@/grovize-mockup-2.png';
+import mockup3 from '@/grovize-mockup-3.png';
+import mockup4 from '@/grovize-mockup-4.png';
 
 
-export default function Features() {
+
+export default function Solution() {
   const features = [
     {
       title: '3-Click Ultra-Fast Billing',
@@ -46,7 +51,7 @@ export default function Features() {
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
             <h1 className="text-5xl md:text-7xl font-bold text-rich-black mb-6">
-              Powerful Features for the Modern Retailer
+              Powerful Solutions for the Modern Retailer
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -84,6 +89,49 @@ export default function Features() {
               </div>
             </ScrollReveal>
           ))}
+        </div>
+      </div>
+
+      {/* Mockup Section */}
+      <div className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <ScrollReveal>
+            <h2 className="text-4xl md:text-5xl font-bold text-rich-black mb-12">
+              See GroVize in Action
+            </h2>
+          </ScrollReveal>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+            <ScrollReveal delay={0.1}>
+              <img 
+                src={mockup1} 
+                alt="GroVize App Mockup 1" 
+                className="rounded-2xl shadow-2xl max-w-sm w-full"
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <img 
+                src={mockup2} 
+                alt="GroVize App Mockup 2" 
+                className="rounded-2xl shadow-2xl max-w-sm w-full"
+              />
+            </ScrollReveal>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mt-8 md:mt-16">
+            <ScrollReveal delay={0.1}>
+              <img
+                src={mockup3}
+                alt="GroVize App Mockup 3"
+                className="rounded-2xl shadow-2xl max-w-sm w-full"
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <img
+                src={mockup4}
+                alt="GroVize App Mockup 4"
+                className="rounded-2xl shadow-2xl max-w-sm w-full"
+              />
+            </ScrollReveal>
+          </div>
         </div>
       </div>
 

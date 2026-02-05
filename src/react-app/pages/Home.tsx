@@ -6,6 +6,73 @@ import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import { MagneticButton } from '@/react-app/components/MagneticButton';
 import TrustBar from '@/react-app/components/TrustBar';
+import imgLeft from '../../IMG_0978.PNG';
+import imgRight from '../../IMG_0975.PNG';
+
+
+import { GlassCard } from '@/react-app/components/GlassCard';
+import { Box, Sparkles, FileText, MessageCircle, BarChart3 } from 'lucide-react';
+
+const features = [
+  {
+    icon: Box,
+    title: 'Smart Inventory',
+    subtitle: 'Never Run Out of Stock',
+    description: 'AI-powered alerts notify you before items run low. Automatic reorder suggestions based on sales patterns.',
+    visual: (
+      <>
+        <div className="text-red-500 text-sm font-semibold">Low Stock Alert: 5 items need reorder</div>
+        <div className="text-green-500 text-sm font-semibold">Smart Prediction: Order 20% more rice</div>
+      </>
+    ),
+  },
+  {
+    icon: Sparkles,
+    title: 'AI Powered',
+    subtitle: 'Predict Future Sales',
+    description: 'Know what will sell next week with AI forecasting.',
+    visual: (
+      <div className="text-green-500 text-sm font-semibold">Next Week: +23% Expected growth</div>
+    ),
+  },
+  {
+    icon: FileText,
+    title: 'GST Billing',
+    subtitle: '10-Second Invoices',
+    description: 'Create GST-compliant bills instantly.',
+    visual: (
+      <>
+        <div>Invoice #1247</div>
+        <div>₹4,851 (GST Included)</div>
+      </>
+    ),
+  },
+  {
+    icon: MessageCircle,
+    title: 'WhatsApp Marketing',
+    subtitle: 'Automated Customer Messages',
+    description: 'Send payment reminders, offers, and updates automatically to your customers on WhatsApp.',
+    visual: (
+      <div className="text-sm">
+        <div>Payment Reminders: 156 (Sent this week)</div>
+        <div>Special Offers: 89 (Active campaigns)</div>
+        <div>Response Rate: 67% (Customers engaged)</div>
+      </div>
+    ),
+  },
+  {
+    icon: BarChart3,
+    title: 'Analytics',
+    subtitle: 'AI Growth Insights',
+    description: 'Profit/Loss, GST reports, and smart recommendations.',
+    visual: (
+      <>
+        <div className="text-green-500 font-semibold">Monthly Profit: +₹45,230</div>
+        <div>GST Collected: ₹12,450</div>
+      </>
+    ),
+  },
+];
 
 export default function Home() {
   const shopTypes = [
@@ -119,6 +186,70 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </div>
+
+      {/* Image Showcase Section */}
+      <div className="container mx-auto px-4 py-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          
+          {/* Left Image */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-muted-gold to-dark-gold rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+            <img 
+              src={imgLeft} 
+              alt="GroVize App Showcase 1" 
+              className="relative rounded-2xl border border-white/20 shadow-2xl w-full object-cover"
+            />
+          </div>
+
+          {/* Right Image */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-dark-gold to-muted-gold rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+            <img 
+              src={imgRight} 
+              alt="GroVize App Showcase 2" 
+              className="relative rounded-2xl border border-white/20 shadow-2xl w-full object-cover"
+            />
+          </div>
+
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-rich-black mb-4">
+                Everything You Need to Grow Your Dukaan
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <GlassCard>
+                  <div className="flex items-center gap-4 mb-4">
+                    <feature.icon className="w-8 h-8 text-muted-gold" />
+                    <div>
+                      <h3 className="text-xl font-bold text-rich-black">{feature.title}</h3>
+                      <p className="text-slate-grey">{feature.subtitle}</p>
+                    </div>
+                  </div>
+                  <p className="text-slate-grey mb-4">{feature.description}</p>
+                  <div className="bg-white/10 p-4 rounded-lg">
+                    {feature.visual}
+                  </div>
+                </GlassCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
+
+
+
 
       {/* Trust Section - Scrolling Ticker */}
       <div className="py-20 px-4 sm:px-6 lg:px-8">

@@ -3,12 +3,12 @@ import Footer from '@/react-app/components/Footer';
 import ScrollReveal from '@/react-app/components/ScrollReveal';
 import { Target, Truck, Lightbulb, Heart, Linkedin, Instagram } from 'lucide-react';
 import founderImage from '../../founderprofile.jpg';
-import TrustBar from '@/react-app/components/TrustBar';
+
 
 export default function About() {
   return (
     <div className="min-h-screen">
-      <TrustBar />
+
       <Navbar />
       
       {/* Hero Section */}

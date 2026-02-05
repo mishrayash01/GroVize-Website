@@ -3,20 +3,20 @@ import brandLogo from '../../logo2.png';
 
 export default function Footer() {
   const productLinks = [
-    { name: 'Features', path: '/features' },
-    { name: 'Pricing', path: '#' },
-    { name: 'Desktop Login', path: '#' },
+    { name: 'Solution', path: '/solution' },
+    { name: 'Pricing', path: '/pricing' },
+    { name: 'Desktop Login', path: '/desktop-login' },
   ];
 
   const companyLinks = [
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Careers', path: '#' },
+    { name: 'Careers', path: '/desktop-login' },
   ];
 
   const legalLinks = [
-    { name: 'Privacy Policy', path: '#' },
-    { name: 'Terms of Service', path: '#' },
+    { name: 'Privacy Policy', path: '/desktop-login' },
+    { name: 'Terms of Service', path: '/desktop-login' },
   ];
 
   return (

@@ -22,7 +22,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Features', path: '/features' },
+    { name: 'Solution', path: '/solution' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact Support', path: '/contact' },
   ];
@@ -33,6 +33,23 @@ export default function Navbar() {
         isScrolled ? 'bg-white/90 backdrop-blur-xl shadow-lg' : 'bg-transparent'
       }`}
     >
+      {/* Top bar */}
+      <div className="hidden lg:block bg-slate-50 py-2 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm text-slate-600">
+          <p className="font-medium">
+            <span role="img" aria-label="Indian Flag">🇮🇳</span> Made for Indian Retailers
+          </p>
+          <div className="flex items-center space-x-6">
+            <p>
+              Support: <a href="mailto:helpgrovize@gmail.com" className="hover:text-muted-gold">helpgrovize@gmail.com</a>
+            </p>
+            <Link to="/desktop-login" className="font-semibold text-muted-gold hover:text-darker-muted-gold">
+              Desktop Login
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -95,6 +112,12 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              <Link
+                to="/desktop-login"
+                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 text-dark-grey hover:bg-gray-100 hover:text-rich-black`}
+              >
+                Desktop Login
+              </Link>
               <a
                 href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
                 target="_blank"
