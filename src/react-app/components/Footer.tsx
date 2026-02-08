@@ -87,7 +87,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-gray-200 text-center">
           <p className="text-base text-gray-400">
-            © 2026 GroVize Technologies Pvt. Ltd. | Made with ❤️ in India.
+            © 2026 GroVize | Made with ❤️ in India.
           </p>
         </div>
       </div>

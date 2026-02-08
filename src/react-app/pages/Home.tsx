@@ -296,7 +296,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1, delay: 0.6, type: "spring" }}
-              className="hidden lg:flex justify-center items-center relative"
+              className="flex justify-center items-center relative mt-12 lg:mt-0"
             >
               <motion.div
                 animate={{ 
@@ -304,21 +304,21 @@ export default function Home() {
                   rotateZ: [0, 2, 0, -2, 0]
                 }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative bg-soft-off-white/50 backdrop-blur-sm rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] p-4 border border-white/20"
+                className="relative bg-soft-off-white/50 backdrop-blur-sm rounded-[2rem] sm:rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] p-3 sm:p-4 border border-white/20 w-full max-w-[300px] sm:max-w-md"
               >
                 <img 
                   src="https://019c0931-75c4-76fa-b832-8ca7391e15f9.mochausercontent.com/Untitled_design__1_-removebg-preview_upscaled.png" 
                   alt="GroVize App" 
-                  className="relative w-full max-w-md h-auto rounded-[2.5rem]"
+                  className="relative w-full h-auto rounded-[1.5rem] sm:rounded-[2.5rem]"
                 />
                 
                 {/* Floating elements */}
                 <motion.div
                   animate={{ y: [0, 15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                  className="absolute -top-10 -right-10 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 hidden xl:block"
+                  className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-xl border border-gray-100"
                 >
-                  <Sparkles className="text-muted-gold w-6 h-6" />
+                  <Sparkles className="text-muted-gold w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.div>
               </motion.div>
             </motion.div>
