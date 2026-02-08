@@ -1,17 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Navbar from '@/react-app/components/Navbar';
 import Footer from '@/react-app/components/Footer';
 import ScrollReveal from '@/react-app/components/ScrollReveal';
-import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
+import { motion, useScroll, useTransform, useMotionValue, useAnimationFrame } from 'framer-motion';
+import { Download, Box, Sparkles, FileText, MessageCircle, BarChart3, Truck, Globe } from 'lucide-react';
 import { MagneticButton } from '@/react-app/components/MagneticButton';
 import TrustBar from '@/react-app/components/TrustBar';
 import imgLeft from '../../IMG_0978.PNG';
 import imgRight from '../../IMG_0975.PNG';
-
-
 import { GlassCard } from '@/react-app/components/GlassCard';
-import { Box, Sparkles, FileText, MessageCircle, BarChart3 } from 'lucide-react';
 
 const features = [
   {
@@ -74,6 +71,148 @@ const features = [
   },
 ];
 
+const futureFeatures = [
+  {
+    icon: Truck,
+    title: 'End-to-End Logistics',
+    description: 'Seamless delivery boy deployment and automated route optimization for local merchants.',
+  },
+  {
+    icon: Globe,
+    title: 'Personalized Websites',
+    description: '3D-animated, high-conversion digital storefronts that sync in real-time with the GroVize inventory database. Update prices on the app and see them reflected on the site instantly.',
+  },
+];
+
+const AnimatedTitle = ({ text }: { text: string }) => {
+  const words = text.split(" ");
+  
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      rotateX: -90,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
+  return (
+    <motion.h1
+      style={{ perspective: "1000px" }}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-rich-black flex flex-wrap"
+    >
+      {words.map((word, index) => (
+        <motion.span
+          variants={child}
+          key={index}
+          className="mr-3"
+          style={{ display: "inline-block" }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.h1>
+  );
+};
+
+const InteractiveMarquee = ({ items }: { items: string[] }) => {
+  const x = useMotionValue(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [contentWidth, setContentWidth] = useState(0);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      // We render the list multiple times, so the wrap point is the width of one set of items
+      setContentWidth(containerRef.current.scrollWidth / 4);
+    }
+  }, [items]);
+
+  useAnimationFrame((_, delta) => {
+    if (isPaused) return;
+
+    // Move left by default
+    const moveBy = -0.05 * delta; 
+    let newX = x.get() + moveBy;
+
+    // Infinite wrap logic
+    if (contentWidth > 0) {
+      if (newX <= -contentWidth) {
+        newX += contentWidth;
+      } else if (newX > 0) {
+        newX -= contentWidth;
+      }
+    }
+    
+    x.set(newX);
+  });
+
+  const handleDrag = () => {
+    if (contentWidth > 0) {
+      let currentX = x.get();
+      if (currentX <= -contentWidth) {
+        x.set(currentX + contentWidth);
+      } else if (currentX > 0) {
+        x.set(currentX - contentWidth);
+      }
+    }
+  };
+
+  return (
+    <div 
+      className="relative overflow-hidden py-8 cursor-grab active:cursor-grabbing"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <motion.div
+        ref={containerRef}
+        style={{ x }}
+        drag="x"
+        dragConstraints={{ left: -Infinity, right: Infinity }}
+        onDragStart={() => setIsPaused(true)}
+        onDragEnd={() => setIsPaused(false)}
+        onDrag={handleDrag}
+        className="flex whitespace-nowrap"
+      >
+        {/* Render 4 times to ensure enough buffer for dragging and infinite loop */}
+        {[...items, ...items, ...items, ...items].map((shop, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 mx-4 px-8 py-4 bg-soft-off-white rounded-xl border border-border-light select-none"
+          >
+            <span className="text-rich-black font-semibold whitespace-nowrap">{shop}</span>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
 export default function Home() {
   const shopTypes = [
     'Medical Stores',
@@ -86,60 +225,65 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-hidden">
       <TrustBar />
       <Navbar />
       
       {/* Hero Section */}
-      <div className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="max-w-7xl mx-auto w-full">
+      <div className="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 pt-20 relative">
+        {/* Animated background element */}
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-muted-gold/10 rounded-full blur-[120px] -z-10"
+        />
+
+        <div className="max-w-7xl mx-auto w-full relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Text */}
             <div className="text-left">
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-rich-black"
-                style={{
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                }}
-              >
-                Smart AI-Powered Business Growth App for Smart Bharat
-              </motion.h1>
+              <AnimatedTitle text="Empowering Bharat’s Dukaans with Super-Powers Made For Smart Bharat" />
 
               <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl text-slate-grey mb-8 leading-relaxed"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="text-xl text-slate-grey mb-8 leading-relaxed max-w-xl"
               >
                 Manage Inventory, Create Invoices & Track Sales in seconds. Transform your Dukaan with AI-powered tools designed specifically for Indian retailers.
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.2, type: "spring" }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <MagneticButton
-                  as="a"
-                  href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
+                <a 
+                  href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 bg-muted-gold text-black rounded-xl font-semibold text-lg flex items-center justify-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300"
+                  className="px-8 py-4 bg-[#4F9C8F] text-white rounded-full font-semibold flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
                 >
-                  <Download className="w-5 h-5" />
+                  <motion.div
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <Download className="w-5 h-5" />
+                  </motion.div>
                   <span>Download App (Free APK)</span>
-                </MagneticButton>
-
+                </a>
               </motion.div>
+              
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                className="mt-4 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1.5 }}
+                className="mt-4"
               >
                 <p className="text-xs text-slate-grey opacity-75">
                   Note: You are downloading the Developer Beta directly. If you see a security warning, click "Download Anyway" – It is 100% Safe & Secure.
@@ -149,22 +293,33 @@ export default function Home() {
 
             {/* Right Side - App Mockup with Floating Animation */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="hidden lg:flex justify-center items-center"
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, delay: 0.6, type: "spring" }}
+              className="hidden lg:flex justify-center items-center relative"
             >
               <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="relative bg-soft-off-white rounded-3xl shadow-2xl p-4"
+                animate={{ 
+                  y: [0, -30, 0],
+                  rotateZ: [0, 2, 0, -2, 0]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="relative bg-soft-off-white/50 backdrop-blur-sm rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] p-4 border border-white/20"
               >
-                {/* App Mockup Image */}
                 <img 
                   src="https://019c0931-75c4-76fa-b832-8ca7391e15f9.mochausercontent.com/Untitled_design__1_-removebg-preview_upscaled.png" 
                   alt="GroVize App" 
-                  className="relative w-full max-w-md h-auto"
+                  className="relative w-full max-w-md h-auto rounded-[2.5rem]"
                 />
+                
+                {/* Floating elements */}
+                <motion.div
+                  animate={{ y: [0, 15, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+                  className="absolute -top-10 -right-10 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 hidden xl:block"
+                >
+                  <Sparkles className="text-muted-gold w-6 h-6" />
+                </motion.div>
               </motion.div>
             </motion.div>
           </div>
@@ -175,12 +330,13 @@ export default function Home() {
       <div className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
-            <div className="relative">
-              {/* Banner Image */}
-              <img 
+            <div className="relative group overflow-hidden rounded-3xl">
+              <motion.img 
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6 }}
                 src="https://019c0931-75c4-76fa-b832-8ca7391e15f9.mochausercontent.com/GroVize-banner.png" 
                 alt="GroVize - Not just billing. A partner who stands by you, every day." 
-                className="relative w-full h-auto rounded-3xl shadow-2xl border border-border-light"
+                className="relative w-full h-auto shadow-2xl border border-border-light cursor-pointer"
               />
             </div>
           </ScrollReveal>
@@ -192,24 +348,30 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           
           {/* Left Image */}
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-muted-gold to-dark-gold rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <img 
-              src={imgLeft} 
-              alt="GroVize App Showcase 1" 
-              className="relative rounded-2xl border border-white/20 shadow-2xl w-full object-cover"
-            />
-          </div>
+          <ScrollReveal>
+            <div className="relative group overflow-hidden rounded-2xl">
+              <div className="absolute -inset-1 bg-gradient-to-r from-muted-gold to-dark-gold rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+              <motion.img 
+                whileHover={{ scale: 1.02 }}
+                src={imgLeft} 
+                alt="GroVize App Showcase 1" 
+                className="relative rounded-2xl border border-white/20 shadow-2xl w-full object-cover"
+              />
+            </div>
+          </ScrollReveal>
 
           {/* Right Image */}
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-dark-gold to-muted-gold rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-            <img 
-              src={imgRight} 
-              alt="GroVize App Showcase 2" 
-              className="relative rounded-2xl border border-white/20 shadow-2xl w-full object-cover"
-            />
-          </div>
+          <ScrollReveal delay={0.2}>
+            <div className="relative group overflow-hidden rounded-2xl">
+              <div className="absolute -inset-1 bg-gradient-to-r from-dark-gold to-muted-gold rounded-2xl blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+              <motion.img 
+                whileHover={{ scale: 1.02 }}
+                src={imgRight} 
+                alt="GroVize App Showcase 2" 
+                className="relative rounded-2xl border border-white/20 shadow-2xl w-full object-cover"
+              />
+            </div>
+          </ScrollReveal>
 
         </div>
       </div>
@@ -230,7 +392,12 @@ export default function Home() {
               <ScrollReveal key={index} delay={index * 0.1}>
                 <GlassCard>
                   <div className="flex items-center gap-4 mb-4">
-                    <feature.icon className="w-8 h-8 text-muted-gold" />
+                    <motion.div 
+                      whileHover={{ rotate: 360, scale: 1.2 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <feature.icon className="w-8 h-8 text-muted-gold" />
+                    </motion.div>
                     <div>
                       <h3 className="text-xl font-bold text-rich-black">{feature.title}</h3>
                       <p className="text-slate-grey">{feature.subtitle}</p>
@@ -247,11 +414,54 @@ export default function Home() {
         </div>
       </div>
 
+      {/* The Future Section */}
+      <div className="py-24 px-4 sm:px-6 lg:px-8 bg-coffee-dark relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-6xl font-playfair font-bold text-cream mb-4">
+              The Future <span className="text-accent-teal">of Retail</span>
+            </h2>
+            <div className="w-24 h-1 bg-accent-teal mx-auto rounded-full" />
+          </motion.div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {futureFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="group relative p-8 bg-coffee-card backdrop-blur-md rounded-3xl border border-coffee-border hover:border-accent-teal hover:shadow-[0_0_20px_rgba(79,156,143,0.3)] transition-all duration-500"
+              >
+                <div className="flex flex-col h-full">
+                  <div className="w-14 h-14 bg-accent-teal/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-8 h-8 text-accent-teal" />
+                  </div>
+                  <h3 className="text-2xl font-playfair font-bold text-cream mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-brown font-inter text-lg leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Background glow effects */}
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent-teal/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent-teal/5 rounded-full blur-[100px]" />
+      </div>
 
-
-
-      {/* Trust Section - Scrolling Ticker */}
+      {/* Trust Section - Interactive Scrolling Ticker */}
       <div className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
@@ -265,18 +475,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <div className="relative overflow-hidden py-8">
-            <div className="flex animate-scroll">
-              {[...shopTypes, ...shopTypes].map((shop, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 mx-4 px-8 py-4 bg-soft-off-white rounded-xl border border-border-light"
-                >
-                  <span className="text-rich-black font-semibold whitespace-nowrap">{shop}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <InteractiveMarquee items={shopTypes} />
         </div>
       </div>
 
@@ -294,9 +493,14 @@ export default function Home() {
               href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-10 py-5 bg-muted-gold text-black rounded-xl font-bold text-xl inline-flex items-center justify-center space-x-3 mx-auto hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300"
+              className="px-10 py-5 bg-[#4F9C8F] text-white rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 mx-auto hover:scale-110 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
             >
-              <Download className="w-6 h-6" />
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                <Download className="w-6 h-6" />
+              </motion.div>
               <span>Download for Free</span>
             </a>
           </div>
@@ -304,20 +508,6 @@ export default function Home() {
       </div>
 
       <Footer />
-
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }

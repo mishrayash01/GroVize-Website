@@ -1,14 +1,13 @@
 import Navbar from '@/react-app/components/Navbar';
 import Footer from '@/react-app/components/Footer';
 import ScrollReveal from '@/react-app/components/ScrollReveal';
-import { Target, Truck, Lightbulb, Heart, Linkedin, Instagram } from 'lucide-react';
+import { Target, Truck, Lightbulb, Heart, Linkedin, Instagram, Globe } from 'lucide-react';
 import founderImage from '../../founderprofile.jpg';
-
+import { motion } from 'framer-motion';
 
 export default function About() {
   return (
     <div className="min-h-screen">
-
       <Navbar />
       
       {/* Hero Section */}
@@ -136,6 +135,60 @@ export default function About() {
                 </div>
               </ScrollReveal>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Future Vision Section */}
+      <div className="bg-[#1A0F0A] py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-5xl font-['Playfair_Display'] font-bold text-[#F5E6D3] text-center mb-16"
+          >
+            The Future
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Feature 1: Logistics */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+              className="bg-[#2D1810] p-8 rounded-2xl border border-[#5A4034] hover:border-[#4F9C8F] hover:shadow-[0_0_20px_rgba(79,156,143,0.2)] transition-all shadow-xl group"
+            >
+              <div className="w-14 h-14 bg-[#4F9C8F]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Truck className="w-8 h-8 text-[#4F9C8F]" />
+              </div>
+              <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#F5E6D3] mb-4">
+                End-to-End Logistics
+              </h3>
+              <p className="text-[#C9B8A0] font-['Inter'] text-lg leading-relaxed">
+                Seamless delivery boy deployment and automated route optimization for local merchants to scale beyond their street.
+              </p>
+            </motion.div>
+
+            {/* Feature 2: Websites */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+              className="bg-[#2D1810] p-8 rounded-2xl border border-[#5A4034] hover:border-[#4F9C8F] hover:shadow-[0_0_20px_rgba(79,156,143,0.2)] transition-all shadow-xl group"
+            >
+              <div className="w-14 h-14 bg-[#4F9C8F]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Globe className="w-8 h-8 text-[#4F9C8F]" />
+              </div>
+              <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#F5E6D3] mb-4">
+                Personalized 3D Storefronts
+              </h3>
+              <p className="text-[#C9B8A0] font-['Inter'] text-lg leading-relaxed">
+                High-conversion, 3D-animated websites that sync in real-time with your GroVize inventory. Change a price on the app, and it updates on the web instantly.
+              </p>
+            </motion.div>
           </div>
         </div>
       </div>

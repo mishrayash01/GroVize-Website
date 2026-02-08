@@ -33,27 +33,10 @@ export default function Navbar() {
         isScrolled ? 'bg-white/90 backdrop-blur-xl shadow-lg' : 'bg-transparent'
       }`}
     >
-      {/* Top bar */}
-      <div className="hidden lg:block bg-slate-50 py-2 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm text-slate-600">
-          <p className="font-medium">
-            <span role="img" aria-label="Indian Flag">🇮🇳</span> Made for Indian Retailers
-          </p>
-          <div className="flex items-center space-x-6">
-            <p>
-              Support: <a href="mailto:helpgrovize@gmail.com" className="hover:text-muted-gold">helpgrovize@gmail.com</a>
-            </p>
-            <Link to="/desktop-login" className="font-semibold text-muted-gold hover:text-darker-muted-gold">
-              Desktop Login
-            </Link>
-          </div>
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
+          <Link to="/" className="flex items-center gap-2">
             <img 
               src={logo} 
               alt="GroVize Logo" 
@@ -63,7 +46,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -79,7 +62,7 @@ export default function Navbar() {
               href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 bg-muted-gold text-black rounded-lg font-semibold flex items-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300"
+              className="px-6 py-2.5 bg-muted-gold text-rich-black rounded-lg font-bold flex items-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300 shadow-md"
             >
               <Download className="w-4 h-4" />
               <span>Download App</span>
@@ -89,7 +72,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-rich-black hover:text-muted-gold transition-colors duration-300"
+            className="md:hidden text-rich-black hover:text-muted-gold transition-colors duration-300"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -97,7 +80,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-xl rounded-b-2xl shadow-2xl border-t border-gray-200">
+          <div className="md:hidden bg-white/95 backdrop-blur-xl rounded-b-2xl shadow-2xl border-t border-gray-200">
             <div className="px-4 pt-4 pb-6 space-y-4">
               {navLinks.map((link) => (
                 <Link
@@ -112,17 +95,11 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Link
-                to="/desktop-login"
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 text-dark-grey hover:bg-gray-100 hover:text-rich-black`}
-              >
-                Desktop Login
-              </Link>
               <a
                 href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full px-6 py-3 bg-muted-gold text-black rounded-lg font-semibold flex items-center justify-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300"
+                className="w-full px-6 py-3 bg-muted-gold text-rich-black rounded-lg font-bold flex items-center justify-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300 shadow-md"
               >
                 <Download className="w-4 h-4" />
                 <span>Download App</span>
