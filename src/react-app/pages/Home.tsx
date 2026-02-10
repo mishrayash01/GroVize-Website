@@ -264,7 +264,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <a 
-                  href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg" 
+                  href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-4 bg-[#4F9C8F] text-white rounded-full font-semibold flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
@@ -490,7 +490,7 @@ export default function Home() {
               Join thousands of retailers transforming their business with GroVize
             </p>
             <a
-              href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
+              href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
               target="_blank"
               rel="noopener noreferrer"
               className="px-10 py-5 bg-[#4F9C8F] text-white rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 mx-auto hover:scale-110 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"

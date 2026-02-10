@@ -70,7 +70,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
+              href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2.5 bg-muted-gold text-rich-black rounded-lg font-bold flex items-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300 shadow-md"
@@ -121,7 +121,7 @@ export default function Navbar() {
               </div>
 
               <a
-                href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
+                href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full px-6 py-3 bg-muted-gold text-rich-black rounded-lg font-bold flex items-center justify-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300 shadow-md"

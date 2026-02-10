@@ -1,7 +1,7 @@
 import Navbar from '@/react-app/components/Navbar';
 import Footer from '@/react-app/components/Footer';
 import ScrollReveal from '@/react-app/components/ScrollReveal';
-import { Target, Truck, Lightbulb, Heart, Linkedin, Instagram, Globe } from 'lucide-react';
+import { Target, Truck, Lightbulb, Heart, Linkedin, Instagram, Globe, Download } from 'lucide-react';
 import founderImage from '../../founderprofile.jpg';
 import { motion } from 'framer-motion';
 
@@ -191,6 +191,34 @@ export default function About() {
             </motion.div>
           </div>
         </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="py-20 px-4 sm:px-6 lg:px-8">
+        <ScrollReveal>
+          <div className="max-w-4xl mx-auto bg-soft-off-white rounded-3xl p-12 border border-border-light text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-rich-black mb-6">
+              Download the APK Now
+            </h2>
+            <p className="text-xl text-slate-grey mb-8">
+              Join thousands of retailers transforming their business with GroVize
+            </p>
+            <a
+              href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-5 bg-[#4F9C8F] text-white rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 mx-auto hover:scale-110 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
+            >
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                <Download className="w-6 h-6" />
+              </motion.div>
+              <span>Download for Free</span>
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
 
       <Footer />
