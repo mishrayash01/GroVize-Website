@@ -79,8 +79,8 @@ const futureFeatures = [
   },
   {
     icon: Globe,
-    title: 'Personalized Websites',
-    description: '3D-animated, high-conversion digital storefronts that sync in real-time with the GroVize inventory database. Update prices on the app and see them reflected on the site instantly.',
+    title: 'Personalized Storefront (GroVize Mart)',
+    description: "Don't just bill; start selling. Your entire stock is instantly listed on the GroVize Hyperlocal Network. Customers in your colony can check your live inventory and place orders directly. Hustle Free —just pure business.",
   },
 ];
 

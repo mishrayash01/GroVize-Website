@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, Instagram } from 'lucide-react';
 import logo from '../../logo1.png';
 
 export default function Navbar() {
@@ -58,6 +58,17 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+            
+            <a
+              href="https://www.instagram.com/grovize.in/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-rich-black hover:text-muted-gold transition-all duration-300 hover:scale-110"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+
             <a
               href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
               target="_blank"
@@ -95,6 +106,20 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              
+              <div className="flex items-center justify-between px-4">
+                <span className="text-sm font-medium text-dark-grey text-slate-500">Follow us</span>
+                <a
+                  href="https://www.instagram.com/grovize.in/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-rich-black hover:text-muted-gold transition-all duration-300 hover:scale-110"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-6 h-6" />
+                </a>
+              </div>
+
               <a
                 href="https://drive.google.com/uc?export=download&id=168xhn-_shuHG4Vzr6aeWgWX522g3jvBg"
                 target="_blank"

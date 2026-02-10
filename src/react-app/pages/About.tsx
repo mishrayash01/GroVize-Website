@@ -171,7 +171,7 @@ export default function About() {
               </p>
             </motion.div>
 
-            {/* Feature 2: Websites */}
+            {/* Feature 2: Storefront */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -183,10 +183,10 @@ export default function About() {
                 <Globe className="w-8 h-8 text-[#4F9C8F]" />
               </div>
               <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#F5E6D3] mb-4">
-                Personalized 3D Storefronts
+                Personalized Storefront (GroVize Mart)
               </h3>
               <p className="text-[#C9B8A0] font-['Inter'] text-lg leading-relaxed">
-                High-conversion, 3D-animated websites that sync in real-time with your GroVize inventory. Change a price on the app, and it updates on the web instantly.
+                Don't just bill; start selling. Your entire stock is instantly listed on the GroVize Hyperlocal Network. Customers in your colony can check your live inventory and place orders directly. Hustle Free —just pure business.
               </p>
             </motion.div>
           </div>
