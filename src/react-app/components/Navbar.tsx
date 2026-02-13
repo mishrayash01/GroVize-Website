@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Download, Instagram } from 'lucide-react';
+import { Menu, X, Download, Instagram, Globe } from 'lucide-react';
 import logo from '../../logo1.png';
 
 export default function Navbar() {
@@ -46,7 +46,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -59,25 +59,39 @@ export default function Navbar() {
               </Link>
             ))}
             
-            <a
-              href="https://www.instagram.com/grovize.in/?hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-rich-black hover:text-muted-gold transition-all duration-300 hover:scale-110"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
+            <div className="flex items-center space-x-4">
+              <a
+                href="https://www.instagram.com/grovize.in/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-rich-black hover:text-muted-gold transition-all duration-300 hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
 
-            <a
-              href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2.5 bg-muted-gold text-rich-black rounded-lg font-bold flex items-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300 shadow-md"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download App</span>
-            </a>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://gro-vize-frontend.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 border-2 border-muted-gold text-rich-black rounded-lg font-bold text-sm flex items-center space-x-2 hover:bg-muted-gold/10 transition-all duration-300"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span>Launch Web App</span>
+                </a>
+
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-muted-gold text-rich-black rounded-lg font-bold text-sm flex items-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300 shadow-sm"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download App</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,8 +121,8 @@ export default function Navbar() {
                 </Link>
               ))}
               
-              <div className="flex items-center justify-between px-4">
-                <span className="text-sm font-medium text-dark-grey text-slate-500">Follow us</span>
+              <div className="flex items-center justify-between px-4 py-2">
+                <span className="text-sm font-medium text-slate-500">Follow us</span>
                 <a
                   href="https://www.instagram.com/grovize.in/?hl=en"
                   target="_blank"
@@ -120,15 +134,26 @@ export default function Navbar() {
                 </a>
               </div>
 
-              <a
-                href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full px-6 py-3 bg-muted-gold text-rich-black rounded-lg font-bold flex items-center justify-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300 shadow-md"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download App</span>
-              </a>
+              <div className="flex flex-col gap-3 px-4">
+                <a
+                  href="https://gro-vize-frontend.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full px-6 py-3 border-2 border-muted-gold text-rich-black rounded-lg font-bold flex items-center justify-center space-x-2"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span>Launch Web App</span>
+                </a>
+                <a
+                  href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full px-6 py-3 bg-muted-gold text-rich-black rounded-lg font-bold flex items-center justify-center space-x-2 shadow-md"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download App</span>
+                </a>
+              </div>
             </div>
           </div>
         )}

@@ -6,18 +6,18 @@ export default function Footer() {
   const productLinks = [
     { name: 'Solution', path: '/solution' },
     { name: 'Pricing', path: '/pricing' },
-    { name: 'Desktop Login', path: '/desktop-login' },
+    { name: 'Desktop Login', path: 'https://gro-vize-frontend.vercel.app/', isExternal: true },
   ];
 
   const companyLinks = [
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Careers', path: '/desktop-login' },
+    { name: 'Careers', path: '/careers' },
   ];
 
   const legalLinks = [
-    { name: 'Privacy Policy', path: '/desktop-login' },
-    { name: 'Terms of Service', path: '/desktop-login' },
+    { name: 'Privacy Policy', path: '/privacy-policy' },
+    { name: 'Terms of Service', path: '/terms-of-service' },
   ];
 
   return (
@@ -41,12 +41,23 @@ export default function Footer() {
             <ul className="space-y-4">
               {productLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-base text-gray-500 hover:text-gray-900 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.isExternal ? (
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className="text-base text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

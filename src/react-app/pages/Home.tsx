@@ -257,27 +257,49 @@ export default function Home() {
                 Manage Inventory, Create Invoices & Track Sales in seconds. Transform your Dukaan with AI-powered tools designed specifically for Indian retailers.
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 1.2, type: "spring" }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                <a 
-                  href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 bg-[#4F9C8F] text-white rounded-full font-semibold flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
+              <div className="flex flex-col gap-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.2 }}
+                  className="flex flex-col sm:flex-row gap-4"
                 >
-                  <motion.div
-                    animate={{ y: [0, -4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                  <a 
+                    href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-[#4F9C8F] text-white rounded-xl font-bold text-lg flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group shadow-md"
                   >
-                    <Download className="w-5 h-5" />
-                  </motion.div>
-                  <span>Download App (Free APK)</span>
-                </a>
-              </motion.div>
+                    <motion.div
+                      animate={{ y: [0, -4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <Download className="w-5 h-5" />
+                    </motion.div>
+                    <span>Download App</span>
+                  </a>
+
+                  <div className="flex flex-col gap-2">
+                    <a 
+                      href="https://gro-vize-frontend.vercel.app" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-4 border-2 border-muted-gold text-rich-black rounded-xl font-bold text-lg flex items-center justify-center space-x-2 hover:bg-muted-gold/10 transition-all duration-300"
+                    >
+                      <Globe className="w-5 h-5" />
+                      <span>Launch Web App</span>
+                    </a>
+                    <div className="flex items-center justify-center sm:justify-start gap-3 px-2">
+                      <span className="text-[10px] uppercase tracking-wider font-bold text-slate-400">Works on:</span>
+                      <div className="flex gap-2 text-slate-500 items-center">
+                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1V11.7H0V3.449zm0 17.1L9.75 21.9V12.3H0v8.249zM10.5 2V11.7H24V.6L10.5 2zM10.5 22l13.5 1.4V12.3H10.5V22z"/></svg>
+                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.702z"/></svg>
+                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9997.9993-.9997c.5511 0 .9993.4486.9993.9997s-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9997.9993-.9997c.5511 0 .9993.4486.9993.9997s-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503c-1.5335-.6949-3.2186-1.0846-4.9908-1.0846-1.7722 0-3.4574.3897-4.9909 1.0846l-2.0222-3.503a.416.416 0 00-.5676-.1521.416.416 0 00-.1521.5676l1.9973 3.4592C3.1626 10.8408 1 13.6696 1 16.7902h22c0-3.1206-2.1626-5.9494-5.1165-7.4688"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
               
               <motion.div
                 initial={{ opacity: 0 }}
@@ -286,7 +308,7 @@ export default function Home() {
                 className="mt-4"
               >
                 <p className="text-xs text-slate-grey opacity-75">
-                  Note: You are downloading the Developer Beta directly. If you see a security warning, click "Download Anyway" – It is 100% Safe & Secure.
+                  Note: For Mobile, you are downloading the Developer Beta directly. If you see a security warning, click "Download Anyway" – It is 100% Safe & Secure.
                 </p>
               </motion.div>
             </div>
@@ -484,25 +506,36 @@ export default function Home() {
         <ScrollReveal>
           <div className="max-w-4xl mx-auto bg-soft-off-white rounded-3xl p-12 border border-border-light text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-rich-black mb-6">
-              Download the APK Now
+              Ready to Grow Your Business?
             </h2>
             <p className="text-xl text-slate-grey mb-8">
               Join thousands of retailers transforming their business with GroVize
             </p>
-            <a
-              href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-10 py-5 bg-[#4F9C8F] text-white rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 mx-auto hover:scale-110 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
-            >
-              <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 1, repeat: Infinity }}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-5 bg-[#4F9C8F] text-white rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 hover:scale-110 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
               >
-                <Download className="w-6 h-6" />
-              </motion.div>
-              <span>Download for Free</span>
-            </a>
+                <motion.div
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 1, repeat: Infinity }}
+                >
+                  <Download className="w-6 h-6" />
+                </motion.div>
+                <span>Download App</span>
+              </a>
+              <a
+                href="https://gro-vize-frontend.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-5 border-2 border-muted-gold text-rich-black rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 hover:bg-muted-gold/10 transition-all duration-300"
+              >
+                <Globe className="w-6 h-6" />
+                <span>Launch Web App</span>
+              </a>
+            </div>
           </div>
         </ScrollReveal>
       </div>
