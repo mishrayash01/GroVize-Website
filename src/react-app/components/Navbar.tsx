@@ -27,6 +27,9 @@ export default function Navbar() {
     { name: 'Contact Support', path: '/contact' },
   ];
 
+  const apkLink = "https://drive.google.com/uc?export=download&id=154jd6ciBpYSsv8XYKxQdI1bc7cIs0Z5x";
+  const webAppLink = "https://gro-vize-frontend.vercel.app";
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -72,7 +75,7 @@ export default function Navbar() {
 
               <div className="flex items-center gap-3">
                 <a
-                  href="https://gro-vize-frontend.vercel.app"
+                  href={webAppLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 border-2 border-muted-gold text-rich-black rounded-lg font-bold text-sm flex items-center space-x-2 hover:bg-muted-gold/10 transition-all duration-300"
@@ -82,9 +85,8 @@ export default function Navbar() {
                 </a>
 
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={apkLink}
+                  download="GroVize.apk"
                   className="px-4 py-2 bg-muted-gold text-rich-black rounded-lg font-bold text-sm flex items-center space-x-2 hover:scale-105 hover:bg-darker-muted-gold transition-all duration-300 shadow-sm"
                 >
                   <Download className="w-4 h-4" />
@@ -136,7 +138,7 @@ export default function Navbar() {
 
               <div className="flex flex-col gap-3 px-4">
                 <a
-                  href="https://gro-vize-frontend.vercel.app"
+                  href={webAppLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full px-6 py-3 border-2 border-muted-gold text-rich-black rounded-lg font-bold flex items-center justify-center space-x-2"
@@ -145,9 +147,8 @@ export default function Navbar() {
                   <span>Launch Web App</span>
                 </a>
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={apkLink}
+                  download="GroVize.apk"
                   className="w-full px-6 py-3 bg-muted-gold text-rich-black rounded-lg font-bold flex items-center justify-center space-x-2 shadow-md"
                 >
                   <Download className="w-4 h-4" />

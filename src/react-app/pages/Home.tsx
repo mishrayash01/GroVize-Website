@@ -224,6 +224,9 @@ export default function Home() {
     'Stationery',
   ];
 
+  const apkLink = "https://drive.google.com/uc?export=download&id=154jd6ciBpYSsv8XYKxQdI1bc7cIs0Z5x";
+  const webAppLink = "https://gro-vize-frontend.vercel.app";
+
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       <TrustBar />
@@ -265,10 +268,9 @@ export default function Home() {
                   className="flex flex-col sm:flex-row gap-4"
                 >
                   <a 
-                    href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-4 bg-[#4F9C8F] text-white rounded-xl font-bold text-lg flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group shadow-md"
+                    href={apkLink}
+                    download="GroVize.apk"
+                    className="px-8 py-4 bg-[#4F9C8F] text-white rounded-full font-bold text-lg flex items-center justify-center space-x-2 hover:scale-105 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group shadow-md"
                   >
                     <motion.div
                       animate={{ y: [0, -4, 0] }}
@@ -281,10 +283,10 @@ export default function Home() {
 
                   <div className="flex flex-col gap-2">
                     <a 
-                      href="https://gro-vize-frontend.vercel.app" 
+                      href={webAppLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-8 py-4 border-2 border-muted-gold text-rich-black rounded-xl font-bold text-lg flex items-center justify-center space-x-2 hover:bg-muted-gold/10 transition-all duration-300"
+                      className="px-8 py-4 border-2 border-muted-gold text-rich-black rounded-full font-bold text-lg flex items-center justify-center space-x-2 hover:bg-muted-gold/10 transition-all duration-300"
                     >
                       <Globe className="w-5 h-5" />
                       <span>Launch Web App</span>
@@ -513,10 +515,9 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://drive.google.com/uc?export=download&id=1Mi47EGd-ECCv7jm1zBlTXsd1dXyu9md1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-10 py-5 bg-[#4F9C8F] text-white rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 hover:scale-110 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
+                href={apkLink}
+                download="GroVize.apk"
+                className="px-10 py-5 bg-[#4F9C8F] text-white rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 mx-auto hover:scale-110 hover:shadow-lg hover:shadow-[#4F9C8F]/40 transition-all duration-300 group"
               >
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
@@ -527,7 +528,7 @@ export default function Home() {
                 <span>Download App</span>
               </a>
               <a
-                href="https://gro-vize-frontend.vercel.app"
+                href={webAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-5 border-2 border-muted-gold text-rich-black rounded-full font-bold text-xl inline-flex items-center justify-center space-x-3 hover:bg-muted-gold/10 transition-all duration-300"
